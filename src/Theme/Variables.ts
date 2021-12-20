@@ -9,8 +9,8 @@ import {
   ThemeColors,
   ThemeFontSize,
   ThemeMetricsSizes,
-  ThemeNavigationColors,
-} from '@/Theme/theme.type'
+  ThemeNavigationColors
+} from 'src/Theme/theme.type';
 
 /**
  * Colors
@@ -23,12 +23,12 @@ export const Colors: ThemeColors = {
   text: '#212529',
   primary: 'orange',
   success: '#28a745',
-  error: '#dc3545',
-}
+  error: '#dc3545'
+};
 
 export const NavigationColors: Partial<ThemeNavigationColors> = {
-  primary: Colors.primary,
-}
+  primary: Colors.primary
+};
 
 /**
  * FontSize
@@ -36,26 +36,26 @@ export const NavigationColors: Partial<ThemeNavigationColors> = {
 export const FontSize: ThemeFontSize = {
   small: 16,
   regular: 20,
-  large: 40,
-}
+  large: 40
+};
 
 /**
  * Metrics Sizes
  */
-const tiny = 5 // 10
-const small = tiny * 2 // 10
-const regular = tiny * 3 // 15
-const large = regular * 2 // 30
+const tiny = 5; // 10
+const small = tiny * 2; // 10
+const regular = tiny * 3; // 15
+const large = regular * 2; // 30
 export const MetricsSizes: ThemeMetricsSizes = {
   tiny,
   small,
   regular,
-  large,
-}
+  large
+};
 
 export default {
   Colors,
   NavigationColors,
   FontSize,
-  MetricsSizes,
-}
+  MetricsSizes
+};

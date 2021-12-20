@@ -1,44 +1,39 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import {
   View,
   ActivityIndicator,
   Text,
   TextInput,
   TouchableOpacity,
-  ScrollView,
-} from 'react-native'
-import { useDispatch } from 'react-redux'
-import { useTranslation } from 'react-i18next'
-import { Brand } from '@/Components'
-import { useTheme } from '@/Hooks'
-import { useLazyFetchOneQuery } from '@/Services/modules/users'
-import { changeTheme, ThemeState } from '@/Store/Theme'
+  ScrollView
+} from 'react-native';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { Brand } from 'src/Components';
+import { useTheme } from 'src/Hooks';
+import { useLazyFetchOneQuery } from 'src/Services/modules/users';
+import { changeTheme, ThemeState } from 'src/Store/Theme';
 
 const ExampleContainer = () => {
-  const { t } = useTranslation()
-  const { Common, Fonts, Gutters, Layout } = useTheme()
-  const dispatch = useDispatch()
+  const { t } = useTranslation();
+  const { Common, Fonts, Gutters, Layout } = useTheme();
+  const dispatch = useDispatch();
 
-  const [userId, setUserId] = useState('9')
-  const [fetchOne, { data, isSuccess, isLoading, isFetching, error }] =
-    useLazyFetchOneQuery()
+  const [userId, setUserId] = useState('9');
+  const [fetchOne, { data, isSuccess, isLoading, isFetching, error }] = useLazyFetchOneQuery();
 
   useEffect(() => {
-    fetchOne(userId)
-  }, [fetchOne, userId])
+    fetchOne(userId);
+  }, [fetchOne, userId]);
 
   const onChangeTheme = ({ theme, darkMode }: Partial<ThemeState>) => {
-    dispatch(changeTheme({ theme, darkMode }))
-  }
+    dispatch(changeTheme({ theme, darkMode }));
+  };
 
   return (
     <ScrollView
       style={Layout.fill}
-      contentContainerStyle={[
-        Layout.fill,
-        Layout.colCenter,
-        Gutters.smallHPadding,
-      ]}
+      contentContainerStyle={[Layout.fill, Layout.colCenter, Gutters.smallHPadding]}
     >
       <View style={[[Layout.colCenter, Gutters.smallHPadding]]}>
         <Brand />
@@ -46,9 +41,7 @@ const ExampleContainer = () => {
         {!isSuccess ? (
           <Text style={Fonts.textRegular}>{error}</Text>
         ) : (
-          <Text style={Fonts.textRegular}>
-            {t('example.helloUser', { name: data?.name })}
-          </Text>
+          <Text style={Fonts.textRegular}>{t('example.helloUser', { name: data?.name })}</Text>
         )}
       </View>
       <View
@@ -57,7 +50,7 @@ const ExampleContainer = () => {
           Layout.rowHCenter,
           Gutters.smallHPadding,
           Gutters.largeVMargin,
-          Common.backgroundPrimary,
+          Common.backgroundPrimary
         ]}
       >
         <Text style={[Layout.fill, Fonts.textCenter, Fonts.textSmall]}>
@@ -66,7 +59,7 @@ const ExampleContainer = () => {
         <TextInput
           onChangeText={setUserId}
           editable={!isLoading}
-          keyboardType={'number-pad'}
+          keyboardType="number-pad"
           maxLength={1}
           value={userId}
           selectTextOnFocus
@@ -96,7 +89,7 @@ const ExampleContainer = () => {
         <Text style={Fonts.textRegular}>Light</Text>
       </TouchableOpacity>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default ExampleContainer
+export default ExampleContainer;
