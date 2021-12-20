@@ -1,16 +1,16 @@
-import { ThemeColors, ThemeNavigationColors } from '@/Theme/theme.type'
+import { ThemeColors, ThemeNavigationColors } from 'src/Theme/theme.type';
 
 const Colors: ThemeColors = {
   primary: 'lightblue',
   text: 'white',
-  inputBackground: 'gray',
-}
+  inputBackground: 'gray'
+};
 
 const NavigationColors: Partial<ThemeNavigationColors> = {
-  primary: Colors.primary,
-}
+  primary: Colors.primary
+};
 
 export default {
   Colors,
-  NavigationColors,
-}
+  NavigationColors
+};
